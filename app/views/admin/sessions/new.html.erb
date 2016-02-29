@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="bg-black">
+<head>
+  <meta charset="UTF-8">
+  <title>公司通讯录系统登陆</title>
+  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+  <%= stylesheet_link_tag 'login', media: 'all' %>
+   <%= javascript_include_tag "application", :media=>"all"%>
+
+  <%= csrf_meta_tags %>
+</head>
+<body style="width:250px; margin: 0 auto">
+
+<%= form_tag [:admin, :login] do %>
+<div class="control-group">
+  <label style="color:red">
+    <%= flash[:notice] %>
+  </label>
+</div>
+  <div class="form-group">
+    <label for="username">用户名</label>
+     <%= text_field_tag "username", params[:username], class: "form-control", placeholder: "用户名" %>
+  </div>
+  <div class="form-group">
+    <label for="password">密码</label>
+     <input type="password" name="password" class="form-control" placeholder="密码"/>
+  </div>
+<!--   <div class="form-group">
+    <label for="password">重复密码</label>
+     <input type="password_confirmation" name="password_confirmation" class="form-control" placeholder="重复密码"/>
+  </div> -->
+  <div class="form-group">
+    <%= show_simple_captcha %>
+  </div>
+  <div class="form-group">
+     <label style="font-weight: normal;">
+        <input type="checkbox" name="remember_me"/> 记住我 
+    </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-default">提交</button>
+<%end%> 
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<header class="clearfix">
+  <div class="navbar navbar-default navbar-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <i class="icon-menu"></i>
+            </button>
+            <a class="navbar-brand" href="/">
+              <%= image_tag "list-logo.png", alt: 'logo', size: "129x50" %>
+                <!-- <img alt="Fusioo Logo" src="/images/fusioo-logo.png" data-pin-nopin="true"> -->
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>  <a href="javascript:void(0)" class>部门</a></li>
+                <li><a href="javascript:void(0)" id="menuFeaturesAndBenefits" class="">人员</a></li>
+                <li><a href="javascript:void(0)">管理员：<%=@admin.name%></a></li>
+                <li><a href="/admin/logout" id="menuCareers">退出</a></li>
+            </ul>
+        </div>
+    </div>
+  </div>   
+</header>

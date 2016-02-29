@@ -1,0 +1,14 @@
+<% if model.errors.any? %>
+  <div class="form-group">
+    <div class="col-sm-7 col-sm-offset-1">
+      <div class='alert alert-danger'>
+        提交失败:
+        <ul class='m-t-sm'>
+          <% model.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>   
+      </div>  
+    </div>  
+  </div>  
+<% end %>

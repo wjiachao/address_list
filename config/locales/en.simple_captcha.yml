@@ -1,0 +1,8 @@
+en:
+  simple_captcha:
+    placeholder: ""
+    label: "输入验证码:"
+    refresh_button_text: "刷新"
+    message:
+      default: "输入验证码不匹配"
+      user: "输入验证码不匹配"

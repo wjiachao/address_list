@@ -1,0 +1,11 @@
+$('body').hide();
+function checkCookie()
+{
+  sessionid=document.cookie.includes('PHPSESSID')
+  if (sessionid == true)
+    {$('body').show();}
+  else 
+    {
+      checkCookie();
+    }
+}
