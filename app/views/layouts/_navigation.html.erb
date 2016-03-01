@@ -10,4 +10,9 @@
         <i class="feature-icon glyphicon glyphicon-cloud"></i> <span>员工管理</span>
       <% end %>
     </li>
+    <li class="<%=active?(:home)%>">
+      <%= link_to admin_api_token_path do%>
+         <i class="feature-icon glyphicon glyphicon-cloud"></i> <span>获取API接口密钥</span>
+      <%end%>
+    </li>
 </ul>

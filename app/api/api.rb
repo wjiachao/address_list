@@ -1,6 +1,5 @@
+require 'jwt'
 class API < Grape::API
-  # version 'v1', using: :path
-  # format :json
   prefix :api
   format :json
   formatter :json, Grape::Formatter::Jbuilder
@@ -14,19 +13,31 @@ class API < Grape::API
   end
 
   helpers do  
-    # include SimpleCaptcha::ControllerHelpers
-    def session
-      env[Rack::Session::Abstract::ENV_SESSION_KEY]
-    end
-
-    def current_user
-      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    def check_token       
+      p params['token']     
+      decode = JWT.decode(params["token"], '$2a$10$', true, { :algorithm => 'HS256' }) rescue nil
+      p decode
+      decode_id = decode[0]['data'].to_i  rescue nil
+      user = Account.find(decode_id) rescue nil
+      if user.present? && params["token"] && params["token"] != ""
+        true                   
+      else                     
+        false                  
+      end                      
     end
   end
 
-
-  resource :get do
-    get '', jbuilder: 'hello/index.jbuilder' do
+  resource :campany do
+    desc 'get data'
+    params do
+      requires :token, type: String, desc: 'auth token'
+    end
+    get 'employes', jbuilder: 'employes.jbuilder' do
+      if check_token
+        @employes = Employe.all
+      else
+        env['api.tilt.template'] = 'unauth.jbuilder'
+      end
     
     end
   end
