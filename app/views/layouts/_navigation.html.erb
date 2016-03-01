@@ -2,12 +2,12 @@
 <ul id="FeaturesMenu">
     <li class="<%= active?(:departments) %>">
       <%= link_to [:admin, :departments] do %>
-        <i class="feature-icon icon-users-outline"></i> <span>部门管理</span>
+        <i class="feature-icon glyphicon glyphicon-cloud"></i> <span>部门管理</span>
       <% end %>
     </li>
     <li class="<%= active?(:employes) %>">
-      <%= link_to '/' do %>
-        <i class="feature-icon icon-users-outline"></i> <span>员工管理</span>
+      <%= link_to [:admin, :employes] do %>
+        <i class="feature-icon glyphicon glyphicon-cloud"></i> <span>员工管理</span>
       <% end %>
     </li>
 </ul>

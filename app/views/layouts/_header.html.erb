@@ -12,8 +12,8 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li>  <a href="javascript:void(0)" class>部门</a></li>
-                <li><a href="javascript:void(0)" id="menuFeaturesAndBenefits" class="">人员</a></li>
+                <li> <%= link_to '部门', [:admin, :departments]%></li>
+                <li><%= link_to '员工', [:admin, :employes]%></li>
                 <li><a href="javascript:void(0)">管理员：<%=@admin.name%></a></li>
                 <li><a href="/admin/logout" id="menuCareers">退出</a></li>
             </ul>

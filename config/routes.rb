@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     get 'logout' =>'sessions#destroy', as: :logout
     post 'login' => 'sessions#create'
     resources :departments
-    resources :employers 
+    resources :employes 
   end
 end

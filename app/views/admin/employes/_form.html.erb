@@ -1,0 +1,70 @@
+<% if @employe.errors.any? %>
+<div class="alert alert-error">
+  <ul style="margin:0 0 0px 25px">
+    <% @employe.errors.messages.each do |key, msg| %>
+      <li style="color:red"><%= msg.join(' ') %></li>
+    <% end %>   
+  </ul>
+</div>  
+<% end %>
+
+<section class="content">
+  <div class="box box-primary">
+    <%= form_for(@employe, :url => commitpath, :html => {:multipart => true, :class => 'form-horizontal'}) do |f| %>
+    <div class="form-group">
+      <%if action_name == 'new'%>
+        <h3 class="box-title">员工创建</h3>
+      <%end%>
+      <%if action_name == 'edit'%>
+         <h3 class="box-title">员工编辑</h3>
+      <%end%>
+    </div>
+
+    <div class="form-group">
+      <label for="name">员工姓名</label>
+      <div class = "form-control" >
+       <%= f.text_field :name %>
+     </div>
+      <!-- <input type="name" class="form-control" id="name" placeholder="" name="name"> -->
+    </div> 
+    <div class="form-group">
+      <label for="year">员工年龄</label>
+      <div class = "form-control" >
+       <%= f.text_field :year %>
+     </div>
+    </div>  
+     <div class="form-group">
+      <label for="address">员工联系方式</label>
+      <div class = "form-control" >
+       <%= f.text_field :phone %>
+     </div>
+    </div>
+    <div class="form-group">
+      <label for="address">员工联系地址</label>
+      <div class = "form-control" >
+       <%= f.text_field :address %>
+     </div>
+    </div>     
+     <div class="form-group">
+      <label for="role">员工职务</label>
+      <div class = "form-control" >
+       <%= f.text_field :role %>
+     </div>
+    </div>   
+     <div class="form-group">
+      <label for="department">员工所属部门</label>
+      <%= f.collection_select(:department_id, @departments, :id, :name) %>
+    </div> 
+
+    <div class="box-footer clearfix">                                                                      
+      <div class="row">
+        <div class="col-sm-4 hidden-xs">
+            <%= f.submit "确认", :class => "btn btn-info" %>
+        </div>
+                                                                                                  
+      </div>                                                                                               
+    </div>    
+  </div>  
+  <% end %>  
+</section>
+

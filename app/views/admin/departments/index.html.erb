@@ -3,22 +3,24 @@
     <div class="box-header">
       <h3 class="box-title">部门列表</h3>
     </div>
-    <div class="box-body table-responsive no-padding">                                                     
-      <table class="table table-hover"> 
-        <tbody>                                                                                            
-          <tr>                                                                                             
+    <div class="box-body table-responsive no-padding"> 
+    <table class="table table-hover"> 
+        <thead>
+          <tr>                                                                                                                                                                            
             <th>名称</th> 
-            <th></th>
-            <th>操作</th>                                                               
-          </tr>                                                                                            
+            <th>操作</th>                                                                                                                            
+          </tr> 
+      </thead>
+        <tbody>                                                                                                                                                                            
           <%@departments.each do |department|%>
           <tr>
-            <td> <%=department.name%><td>
-            <td><%=link_to '编辑', edit_admin_department_path(department)%> <%=link_to '删除', admin_department_path(department)%></td>
+            <td> <%=department.name%></td>
+            <td><%=link_to '编辑', edit_admin_department_path(department)%> 
+              <%=link_to '删除', admin_department_path(department), method: "delete", confirm: "Are you sure delete the center active?" %></td>
           </tr>
           <%end%>
         </tbody>                                                                                           
-      </table>                                                                                             
+      </table>                                                                                                                                                                               
     </div>                                                                                                 
     <div class="box-footer clearfix">                                                                      
       <div class="row">

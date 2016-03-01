@@ -34,9 +34,16 @@ class Admin::DepartmentsController < Admin::BaseController
     end
   end
 
+  def destroy
+    @department = Department.find params[:id]
+    if @department.destroy
+      redirect_to [:admin, :departments]
+    end
+  end
+
   private
   def departments_params
-    params.permit(:name)
+    params.require(:department).permit(:name)
   end
 
 end

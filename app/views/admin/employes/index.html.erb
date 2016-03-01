@@ -1,0 +1,49 @@
+<section class="content">
+  <div class="box box-primary">
+    <div class="box-header">
+      <h3 class="box-title">部门列表</h3>
+    </div>
+    <div class="box-body table-responsive no-padding">                                                     
+      <table class="table table-hover"> 
+        <thead>
+          <tr>                                                                                             
+            <th>姓名</th> 
+            <th>年龄</th>
+            <th>联系方式</th>
+            <th>地址</th>
+            <th>部门</th>
+            <th>操作</th>                                                               
+          </tr> 
+      </thead>
+        <tbody>                                                                                                                                                                            
+          <%@employes.each do |employe|%>
+          <tr>   
+            <td> <%=employe.name%></td>
+            <td> <%=employe.year%></td>
+            <td> <%=employe.phone%></td>
+            <td> <%=employe.address%></td>
+            <%if employe.department.blank?%>%>
+              <td></td>
+            <%else%>
+              <td> <%=employe.department.name%></td> 
+            <%end%>
+             
+            <td><%=link_to '编辑', edit_admin_employe_path(employe)%> 
+              <%=link_to '删除', admin_employe_path(employe), method: "delete", confirm: "Are you sure delete the center active?" %></td>
+          </tr>
+          <%end%>
+        </tbody>                                                                                           
+      </table>                                                                                             
+    </div>                                                                                                 
+    <div class="box-footer clearfix">                                                                      
+      <div class="row">
+        <div class="col-sm-4 hidden-xs">
+          <%= link_to '新建',[:new,:admin,:employe],  class: 'btn btn-s-md btn-info btn-flat' %>
+        </div>
+        <div class="col-sm-4 text-center text-center-xs">
+         <%= will_paginate @employes %>
+        </div>                                                                                             
+      </div>                                                                                               
+    </div>    
+  </div>    
+</section>
