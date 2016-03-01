@@ -28,7 +28,7 @@ class Admin::DepartmentsController < Admin::BaseController
   def update
     @department = Department.find params[:id]
     if @department.update_attributes departments_params
-      redirect_to [:admin, :accounts]
+      redirect_to [:admin, :departments]
     else
       render 'edit'
     end
