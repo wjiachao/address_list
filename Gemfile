@@ -39,7 +39,11 @@ gem 'jwt'#for api auth
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
+  #rspec 
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'rspec-rails' 
+  gem 'guard-rspec', require: false
+  gem 'database_cleaner'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 

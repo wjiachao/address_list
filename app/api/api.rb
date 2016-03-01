@@ -13,10 +13,8 @@ class API < Grape::API
   end
 
   helpers do  
-    def check_token       
-      p params['token']     
+    def check_token           
       decode = JWT.decode(params["token"], '$2a$10$', true, { :algorithm => 'HS256' }) rescue nil
-      p decode
       decode_id = decode[0]['data'].to_i  rescue nil
       user = Account.find(decode_id) rescue nil
       if user.present? && params["token"] && params["token"] != ""
