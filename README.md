@@ -16,6 +16,8 @@
 
 
 ## API List
+
+```
 1. Get company address
 
 	address：app.host/api/campany/employes
@@ -32,28 +34,28 @@
 		    },
 		    "data": [
 		        {
-		            "name": "测试0",
+		            "name": "test0",
 		            "year": 11,
 		            "phone": "12121221",
-		            "address": "地址",
-		            "role": "员工",
-		            "department": "技术部"
+		            "address": "ad1",
+		            "role": "employee",
+		            "department": "tec"
 		        },
 		        {
-		            "name": "测试1",
+		            "name": "test1",
 		            "year": 11,
 		            "phone": "12121221",
-		            "address": "地址",
-		            "role": "员工",
-		            "department": "人事部"
+		            "address": "ad12",
+		            "role": "employee",
+		            "department": "personnel"
 		        },
 		        {
-		            "name": "测试2",
+		            "name": "test2",
 		            "year": 11,
 		            "phone": "12121221",
-		            "address": "地址",
-		            "role": "员工",
-		            "department": "销售部"
+		            "address": "ad13",
+		            "role": "employee",
+		            "department": "sale department"
 		        }
 			  ]
 			}
@@ -65,3 +67,4 @@
 		        "status": "unauthorized"
 		    }
 		}
+```
